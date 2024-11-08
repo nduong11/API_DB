@@ -20,22 +20,22 @@ const authenticateToken = (req, res, next) => {
 };
 
 // FirstDB
-app.get('/', (req, res) => {
+app.get('/', authenticateToken, (req, res) => {
     let data = fs.readFileSync('database.json', 'utf8');
     data = JSON.parse(data)
     return res.json(data["FirstDB"]);
 });
-app.get('/FirstDB/chat', (req, res) => {
+app.get('/FirstDB/chat', authenticateToken, (req, res) => {
     let data = fs.readFileSync('database.json', 'utf8');
     data = JSON.parse(data)
     return res.json(data["FirstDB"]["Chats"]);
 });
-app.get('/FirstDB/user', (req, res) => {
+app.get('/FirstDB/user', authenticateToken, (req, res) => {
     let data = fs.readFileSync('database.json', 'utf8');
     data = JSON.parse(data)
     return res.json(data["FirstDB"]["Users"]);
 });
-app.post('/FirstDB/chat', (req, res) => {
+app.post('/FirstDB/chat', authenticateToken, (req, res) => {
     // Đọc dữ liệu từ file JSON
     fs.readFile('database.json', 'utf8', (err, data) => {
         if (err) {
@@ -61,7 +61,7 @@ app.post('/FirstDB/chat', (req, res) => {
     });
     postGit();
 });
-app.post('/FirstDB/user', (req, res) => {
+app.post('/FirstDB/user', authenticateToken, (req, res) => {
     fs.readFile('database.json', 'utf8', (err, data) => {
         if (err) {
             console.error(err);
