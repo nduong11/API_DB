@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const fs = require('fs');
 const simpleGit = require('simple-git');
 const git = simpleGit();
@@ -101,5 +101,5 @@ function postGit(){
 
 // Khởi động server
 app.listen(PORT, () => {
-    console.log(`Server đang chạy tại http://localhost:${PORT}`);
+    console.log(`Server đang chạy tại PORT: ${PORT}`);
 });
