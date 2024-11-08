@@ -90,7 +90,7 @@ app.post('/FirstDB/user', authenticateToken, (req, res) => {
 function postGit(){
     git.add('./database.json')
     .commit('Cập nhật dữ liệu JSON')
-    .push('origin', 'main', (err) => {
+    .push('origin', 'master', (err) => {
       if (err) {
         console.log('Lỗi push lên GitHub:', err);
       } else {
