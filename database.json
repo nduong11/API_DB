@@ -1,40 +1,6 @@
 {
   "FirstDB": {
-    "Users": [
-      {
-        "id": 1,
-        "name": "Jane Smith",
-        "email": "jane@example.com",
-        "time": "7/10/2024"
-      },
-      {
-        "name": "user1",
-        "message": "test post",
-        "id": 2,
-        "time": "8/10/2024"
-      },
-      {
-        "name": "user1",
-        "message": "test post",
-        "id": 3,
-        "time": "8/10/2024"
-      }
-    ],
-    "Chats": [
-      {
-        "id": 1,
-        "idUser": 1,
-        "nameuser": "John Doe",
-        "message": "message",
-        "time": "07/11/2024"
-      },
-      {
-        "idUser": 1,
-        "name": "Jane poter",
-        "message": "jane@example.com",
-        "id": 2,
-        "time": "7/10/2024"
-      }
-    ]
+    "Users": [],
+    "Chats": []
   }
 }
