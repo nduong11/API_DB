@@ -7,6 +7,7 @@ const simpleGit = require('simple-git');
 const git = simpleGit();
 const API_TOKEN = process.env.API_TOKEN;
 
+
 // Middleware để phân tích dữ liệu JSON
 app.use(express.json());
 
@@ -92,12 +93,17 @@ app.post('/FirstDB/user', authenticateToken, (req, res) => {
     postGit();
 });
 
-function postGit() {
-    return git.add('./database.json')
-        .then(() => git.commit('Cập nhật dữ liệu JSON'))
-        .then(() => git.push(`https://${process.env.GITHUB_TOKEN}@github.com/nduong11/API_DB.git`, 'master'))
-        .then(() => console.log('Đã cập nhật và push dữ liệu lên GitHub!'))
-        .catch(err => console.error('Lỗi khi push lên GitHub:', err));
+async function postGit() {
+    try {
+        await git.addConfig('user.email', 'nongduong0811@gmail.com');
+        await git.addConfig('user.name', 'nduong11');
+        await git.add('./database.json');
+        await git.commit('Cập nhật dữ liệu JSON');
+        await git.push(`https://${process.env.GITHUB_TOKEN}@github.com/nduong11/API_DB.git`, 'master');
+        console.log('Đã cập nhật và push dữ liệu lên GitHub!');
+    } catch (err) {
+        console.error('Lỗi khi push lên GitHub:', err);
+    }
 }
 
 
