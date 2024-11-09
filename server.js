@@ -95,6 +95,8 @@ app.post('/FirstDB/user', authenticateToken, (req, res) => {
 
 async function postGit() {
     try {
+        const status = await git.status();
+        console.log(status);
         await git.addConfig('user.email', process.env.GIT_AUTHOR_EMAIL);
         await git.addConfig('user.name', process.env.GIT_AUTHOR_NAME);
         await git.add('./database.json');
