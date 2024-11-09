@@ -95,8 +95,8 @@ app.post('/FirstDB/user', authenticateToken, (req, res) => {
 
 async function postGit() {
     try {
-        await git.addConfig('user.email', 'nongduong0811@gmail.com');
-        await git.addConfig('user.name', 'nduong11');
+        await git.addConfig('user.email', process.env.GIT_AUTHOR_EMAIL);
+        await git.addConfig('user.name', process.env.GIT_AUTHOR_NAME);
         await git.add('./database.json');
         await git.commit('Cập nhật dữ liệu JSON');
         await git.push(`https://${process.env.GITHUB_TOKEN}@github.com/nduong11/API_DB.git`, 'master');
