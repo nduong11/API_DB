@@ -96,7 +96,7 @@ function postGit() {
     return new Promise((resolve, reject) => {
         git.add('./database.json')
             .commit('Cập nhật dữ liệu JSON')
-            .push('origin', 'master', (err) => {
+            .push(`https://${process.env.GITHUB_TOKEN}@github.com/nduong11/API_DB.git`, 'master', (err) => {
                 if (err) {
                     console.error('Lỗi push lên GitHub:', err);
                     reject(err);  // Trả về lỗi nếu push không thành công
@@ -107,6 +107,8 @@ function postGit() {
             });
     });
 }
+
+
 
 
 
