@@ -1,6 +1,15 @@
 {
   "FirstDB": {
-    "Users": [],
+    "Users": [
+      {
+        "id": 1,
+        "email": "test@gmail.com",
+        "password": "test123",
+        "name": "test",
+        "like": 0,
+        "time": "10/10/2024"
+      }
+    ],
     "Chats": [
       {
         "id": 1,
