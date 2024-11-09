@@ -23,6 +23,11 @@ const authenticateToken = (req, res, next) => {
 app.get('/', authenticateToken, (req, res) => {
     let data = fs.readFileSync('database.json', 'utf8');
     data = JSON.parse(data)
+    return res.json(data);
+});
+app.get('/FirstDB', authenticateToken, (req, res) => {
+    let data = fs.readFileSync('database.json', 'utf8');
+    data = JSON.parse(data)
     return res.json(data["FirstDB"]);
 });
 app.get('/FirstDB/chat', authenticateToken, (req, res) => {
