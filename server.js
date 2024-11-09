@@ -92,17 +92,23 @@ app.post('/FirstDB/user', authenticateToken, (req, res) => {
     postGit();
 });
 
-function postGit(){
-    git.add('./database.json')
-    .commit('Cập nhật dữ liệu JSON')
-    .push('origin', 'master', (err) => {
-      if (err) {
-        console.log('Lỗi push lên GitHub:', err);
-      } else {
-        console.log('Đã cập nhật và push dữ liệu lên GitHub!');
-      }
+function postGit() {
+    return new Promise((resolve, reject) => {
+        git.add('./database.json')
+            .commit('Cập nhật dữ liệu JSON')
+            .push('origin', 'master', (err) => {
+                if (err) {
+                    console.error('Lỗi push lên GitHub:', err);
+                    reject(err);  // Trả về lỗi nếu push không thành công
+                } else {
+                    console.log('Đã cập nhật và push dữ liệu lên GitHub!');
+                    resolve();  // Thông báo thành công nếu push thành công
+                }
+            });
     });
 }
+
+
 
 // Khởi động server
 app.listen(PORT, () => {
