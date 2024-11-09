@@ -8,30 +8,6 @@
         "name": "test",
         "like": 0,
         "time": "10/10/2024"
-      },
-      {
-        "id": 2,
-        "email": "test@gmail.com",
-        "password": "test123",
-        "name": "test",
-        "like": 0,
-        "time": "10/10/2024"
-      },
-      {
-        "id": 3,
-        "email": "test@gmail.com",
-        "password": "test123",
-        "name": "test",
-        "like": 0,
-        "time": "10/10/2024"
-      },
-      {
-        "id": 4,
-        "email": "test@gmail.com",
-        "password": "test123",
-        "name": "test",
-        "like": 0,
-        "time": "10/10/2024"
       }
     ],
     "Chats": [
